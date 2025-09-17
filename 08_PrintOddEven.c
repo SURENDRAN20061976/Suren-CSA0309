@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){ int n; if(scanf("%d",&n)!=1) return 0; int a[n]; for(int i=0;i<n;i++) scanf("%d",&a[i]); printf("Odd:"); for(int i=0;i<n;i++) if(a[i]%2) printf(" %d",a[i]); printf("\nEven:"); for(int i=0;i<n;i++) if(a[i]%2==0) printf(" %d",a[i]); printf("\n"); return 0;}

@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){ int n,m;i:; if(scanf("%d %d",&n,&m)!=2) return 0; int a[n],b[m],c[n+m]; for(int i=0;i<n;i++) scanf("%d",&a[i]); for(int j=0;j<m;j++) scanf("%d",&b[j]); for(int i=0;i<n;i++) c[i]=a[i]; for(int j=0;j<m;j++) c[n+j]=b[j]; for(int k=0;k<n+m;k++) printf("%d ",c[k]); printf("\n"); return 0;}

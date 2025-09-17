@@ -1,0 +1,10 @@
+#include <stdio.h>
+void heapify(int a[],int n,int i){int largest=i,l=2*i+1,r=2*i+2; if(l<n && a[l]>a[largest]) largest=l; if(r<n && a[r]>a[largest]) largest=r; if(largest!=i){int t=a[i];a[i]=a[largest];a[largest]=t; heapify(a,n,largest);}}
+void heapSort(int a[],int n){ for(int i=n/2-1;i>=0;i--) heapify(a,n,i); for(int i=n-1;i>0;i--){int t=a[0];a[0]=a[i];a[i]=t; heapify(a,i,0);} }
+void merge(int a[],int l,int m,int r){int n1=m-l+1,n2=r-m; int L[n1],R[n2]; for(int i=0;i<n1;i++) L[i]=a[l+i]; for(int j=0;j<n2;j++) R[j]=a[m+1+j]; int i=0,j=0,k=l; while(i<n1 && j<n2) a[k++]= L[i]<=R[j]?L[i++]:R[j++]; while(i<n1) a[k++]=L[i++]; while(j<n2) a[k++]=R[j++]; }
+void mergeSort(int a[],int l,int r){ if(l<r){int m=(l+r)/2; mergeSort(a,l,m); mergeSort(a,m+1,r); merge(a,l,m,r);} }
+void insertionSort(int a[],int n){ for(int i=1;i<n;i++){int key=a[i],j=i-1; while(j>=0 && a[j]>key){a[j+1]=a[j]; j--;} a[j+1]=key;} }
+int partition(int a[],int l,int r){int pivot=a[r],i=l-1; for(int j=l;j<r;j++) if(a[j]<=pivot){i++; int t=a[i];a[i]=a[j];a[j]=t;} int t=a[i+1];a[i+1]=a[r];a[r]=t; return i+1;}
+void quickSort(int a[],int l,int r){ if(l<r){int p=partition(a,l,r); quickSort(a,l,p-1); quickSort(a,p+1,r);} }
+#include <stdio.h>
+int main(){ int n; if(scanf("%d",&n)!=1) return 0; int a[n]; for(int i=0;i<n;i++) scanf("%d",&a[i]); heapSort(a,n); printf("Heap:"); for(int i=0;i<n;i++) printf(" %d",a[i]); printf("\\n"); for(int i=0;i<n;i++) scanf("%d",&a[i]); mergeSort(a,0,n-1); printf("Merge:"); for(int i=0;i<n;i++) printf(" %d",a[i]); printf("\\n"); for(int i=0;i<n;i++) scanf("%d",&a[i]); insertionSort(a,n); printf("Insertion:"); for(int i=0;i<n;i++) printf(" %d",a[i]); printf("\\n"); for(int i=0;i<n;i++) scanf("%d",&a[i]); quickSort(a,0,n-1); printf("Quick:"); for(int i=0;i<n;i++) printf(" %d",a[i]); printf("\\n"); return 0;}

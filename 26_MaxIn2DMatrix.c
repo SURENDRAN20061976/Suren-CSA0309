@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){ int r,c; if(scanf("%d%d",&r,&c)!=2) return 0; int x; int mx=-2147483648; for(int i=0;i<r;i++) for(int j=0;j<c;j++){scanf("%d",&x); if(x>mx) mx=x;} printf("%d\n",mx); return 0;}

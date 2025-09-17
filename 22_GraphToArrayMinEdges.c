@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){ int n,m; if(scanf("%d%d",&n,&m)!=2) return 0; int edges[m][2]; for(int i=0;i<m;i++) scanf("%d%d",&edges[i][0],&edges[i][1]); for(int i=0;i<m;i++) printf("%d %d\n",edges[i][0],edges[i][1]); printf("Min edges: %d\n",m); return 0;}

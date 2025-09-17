@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){ int n,m; if(scanf("%d%d",&n,&m)!=2) return 0; int g[n][n]; for(int i=0;i<n;i++) for(int j=0;j<n;j++) g[i][j]=0; for(int i=0;i<m;i++){int u,v; scanf("%d%d",&u,&v); g[u][v]=1; g[v][u]=1;} int k; scanf("%d",&k); int path[k]; for(int i=0;i<k;i++) scanf("%d",&path[i]); int ok=1; for(int i=1;i<k;i++) if(!g[path[i-1]][path[i]]) ok=0; printf(ok? "Valid\n":"Invalid\n"); return 0;}

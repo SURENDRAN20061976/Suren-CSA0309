@@ -1,0 +1,3 @@
+#include <stdio.h>
+#include <string.h>
+int main(){ char s[1001]; if(!fgets(s,1000,stdin)) return 0; int top=-1; char st[1000]; for(int i=0;s[i];i++){ char c=s[i]; if(c=='('||c=='['||c=='{') st[++top]=c; else if(c==')'||c==']'||c=='}'){ if(top<0) {printf("Invalid\n"); return 0;} char t=st[top--]; if((t=='('&&c!=')')||(t=='['&&c!=']')||(t=='{'&&c!='}')){printf("Invalid\n"); return 0;} } } printf(top==-1? "Valid\n":"Invalid\n"); return 0;}
